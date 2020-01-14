@@ -1,0 +1,79 @@
+<div class="user-story" style="background:#EACEC5;">
+    <!--card-->
+     <div class="user-card">
+      <!--image-->
+      <div class="user-image">
+        <%= cl_image_tag @user.picture, class: "avatar-user-card dashboard-img", width: 200, height: 200, crop: :thumb, gravity: :face %>
+        <br>
+        <p>
+          <a href= <%= @user.instagram %> target="_blank">
+            <i class="fab fa-instagram insta"></i>
+          </a>
+        </p>
+      </div>
+     <!--infos-->
+      <div class="user-info">
+        <h2><strong><%= @user.name %></strong></h2>
+        <h4><%= @user.location %></h4>
+      </div>
+    </div>
+    <div class="test">
+      <div class="user-about">
+        <p><%= @user.bio %></p>
+      </div>
+    </div>
+  </div>
+
+
+
+<div id="profile-h2">
+  <h2><%= @user.name %>'s joined Campaigns</h2>
+  <% if @user.campaigns.empty? %>
+    <br>
+    <h2>Whoops - <%= @user.name %> hasn't joined any campaigns yet!</h2>
+    <br>
+  <% end %>
+</div>
+
+<div class="profile-container">
+  <div class="profile-campaigns-container">
+    <!--Iterate over campaigns-->
+    <% @user.campaigns.each do |campaign|%>
+
+      <!--campaign cards-->
+      <div class="card-campaign">
+
+        <!--live flag-->
+        <% if campaign.live %>
+          <p class="live-flag">LIVE</p>
+        <% end %>
+
+        <!--image-->
+        <%= link_to cl_image_tag(campaign.campaign_picture, class:"card-campaign-img", width: 278, height: 180, :crop=>"fill"), campaign_path(campaign) %>
+
+        <!--infos-->
+        <div class="card-campaign-infos">
+          <h2><%= link_to campaign.title, campaign_path(campaign) %></h2>
+          <p class="date"><%= campaign.launch_date.strftime("%d. %B %Y") || 'TBD' %></p>
+          <p><%= campaign.campaign_description.first(30)  %>...</p>
+
+          <!--user avatars-->
+          <div id="campaign-users">
+            <% campaign.users.last(2).each do |user| %>
+              <%= link_to cl_image_tag(user.picture, class: "avatar", width: 40, height: 40, crop: :thumb, gravity: :face), user_path(user) %>
+            <% end %>
+            <% if campaign.users.count >= 3 %>
+              + <%= campaign.users.count - 2 %> more
+            <% end %>
+          </div>
+          <!-- link to participate-->
+          <% if campaign.users.include?(current_user) %>
+            <%= link_to 'JOIN', campaign_selections_path(campaign), method: 'post', class: 'index-card-btn' %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+

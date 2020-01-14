@@ -1,0 +1,27 @@
+
+<div class="navbar">
+  <div class="nav-aim">
+    <%= link_to 'AIM', root_path, class:"aim" %>
+  </div>
+<div class="menu">
+  <% if current_user %>
+
+      <%= link_to 'PROFILE', user_path(current_user), class:"profil" %>
+
+
+
+      <%= link_to 'LOG OUT', destroy_user_session_path(current_user), method: :delete, class:"login" %>
+
+  <% else %>
+
+      <%= link_to 'LOG IN', new_user_session_path, class:"login" %>
+
+  <% end %>
+</div>
+</div>
+
+
+
+
+
+

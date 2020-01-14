@@ -1,0 +1,125 @@
+// User Summary
+#profile-h2 {
+  margin: 50px 0 10px 120px;
+}
+
+.user-story {
+ display:flex;
+ justify-content: center;
+ text-align:center;
+ margin:150px 120px 0 120px;
+ padding: 70px;
+background: rgba(96, 85, 192, 0.2);}
+  .user-card {
+    width: 430px;
+    height: 500px;
+    padding: 40px 30px;
+    border: solid 1px black;
+  }
+  .user-image {
+    text-align:center;
+    .fab {
+      margin-top:25px;
+      font-size:35px;
+    }
+  }
+  .user-info {
+    font-family: Roboto;
+    font-size: 15px;
+    line-height: 27px;
+    padding-left: 50px;
+    padding-right: 20px;
+    padding-top: 30px;
+    display:inline;
+    flex-direction: column;
+    text-align:center;
+  }
+
+ .edit-user {
+    text-decoration:underline;
+  }
+
+  .user-assets {
+    margin-left: 50px;
+    max-width: 500px;
+    max-height: 300px;
+  }
+
+.test {
+  flex-direction: column;
+
+   .user-about {
+    margin-top:10px;
+    text-align:left;
+    margin-bottom:30px;
+    margin-left: 30px;
+
+    max-width: 500px;
+    min-height: 258px;
+    padding:40px 30px;
+    border:black 1px solid;
+  }
+}
+  .user-assets {
+    text-align:left;
+    border: black solid 1px;
+    padding:30px;
+    margin-left: 30px;
+    font-family:700;
+  }
+
+   .asset-download {
+      text-decoration: underline ;
+      font-weight:700;
+     }
+
+  .asset-download:hover {
+      color:blue;
+     }
+
+  .user-info {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  line-height: 27px;
+  padding-left: 50px;
+  padding-right: 20px;
+  padding-top: 30px;
+}
+
+p {
+  font-weight: 300;
+}
+
+
+.avatar-user-card {
+  border-radius: 100%;
+}
+
+
+// Display campaigns
+.container-no-campaign {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0 120px;
+}
+
+.no-campaign-yet {
+  margin: 20px;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.profile-campaigns-container {
+  width: 80vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  .card-campaign {
+    margin: 40px;
+  }
+}
+

@@ -1,0 +1,57 @@
+// Selection campaigns
+
+#index-main-title {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.feature-button {
+  margin-top:20px;
+  border: .5px solid #5c4aff;
+  padding: 5px 14px;
+  opacity: .7;
+  font-size: 12px;
+  font-weight: bolder;
+  color: #5c4aff;
+}
+
+.cause-container {
+  width: 80vw;
+  margin: 50px auto 80px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 15px;
+  display: flex;
+  justify-content: space-around;
+  //padding: 20px;
+}
+
+@media(max-width: 1440px) {
+  .cause-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media(max-width: 992px) {
+  .cause-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .cause-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+  .remove-link:hover {
+    color: blue;
+    text-decoration: none;
+  }
+
+#index-page {
+  margin-top: 150px;
+}
+
+.index-title {
+  margin: 50px 0 50px 80px;
+}

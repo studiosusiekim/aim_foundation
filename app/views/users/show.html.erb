@@ -1,0 +1,6 @@
+<% if @user == current_user %>
+  <%= render 'own_profile' %>
+<% else %>
+  <%= render 'other_profile' %>
+<% end %>
+

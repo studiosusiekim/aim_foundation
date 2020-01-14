@@ -1,0 +1,84 @@
+// More-button
+.more-button {
+width: 142px;
+height: 55px;
+border: .5px black solid;
+font-size: 17px;
+line-height: 124.9%;
+text-align: center;
+letter-spacing: 0.03em;
+text-indent: 1px;
+padding: 13px 27px;
+color: black;
+}
+
+.more-button:hover {
+color: blue;
+text-decoration: none;
+}
+
+.log-button {
+  margin-top:15px;
+  border:.5px solid #495057 !important;
+  color:grey;
+  padding: 6px 16px;
+  font-size: 15px;
+
+}
+
+.log-button:hover {
+  color: rgb(31, 31, 226);
+  text-decoration: none;
+  border:.5px solid #495057 !important;
+
+  }
+
+
+#asset-button {
+  border: .5px solid black;
+  padding: 5px 14px;
+  opacity: .7;
+  font-size: 12px;
+  color: black;
+  margin-top: 10px;
+}
+
+
+.index-card-btn {
+  border: .5px solid #5c4aff;
+  padding: 5px 14px;
+  opacity: .7;
+  font-size: 12px;
+  font-weight: bolder;
+  color: #5c4aff;
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+}
+
+
+// all-campaign-button
+.all-campaign-button {
+width: 145px;
+height: 70px;
+border: .5px black solid;
+font-size: 17px;
+line-height: 124.9%;
+text-align: center;
+letter-spacing: 0.03em;
+text-indent: 1px;
+padding: 13px 27px;
+color: black;
+}
+
+.all-campaign-button:hover {
+  color: blue;
+  text-decoration: none;
+}
+
+
+
+.btn-container {
+  display:flex;
+  align-items: right;
+}

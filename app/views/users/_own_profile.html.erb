@@ -1,0 +1,118 @@
+<div class="user-frame">
+  <div class="user-story">
+
+    <!--card-->
+     <div class="user-card">
+
+      <!--image-->
+      <div class="user-image">
+        <%= cl_image_tag @user.picture, class: "avatar-user-card dashboard-img", width: 200, height: 200, crop: :thumb, gravity: :face %>
+        <br>
+        <p>
+          <a href= <%= @user.instagram %> target="_blank">
+            <i class="fab fa-instagram insta"></i>
+          </a>
+        </p>
+      </div>
+
+     <!--infos-->
+      <div class="user-info">
+        <h2><strong><%= @user.name %></strong></h2>
+        <h4><%= @user.location %></h4>
+        <p>
+          <%= link_to 'Edit', edit_user_path(@user), class: "edit-user" %>
+        </p>
+      </div>
+    </div>
+
+   <!--bio and assets-->
+    <div class="test">
+      <div class="user-about">
+        <p><%= @user.bio %></p>
+      </div>
+
+      <div class="user-assets">
+        <% if @user.selections.empty? %>
+          <p>Please select a campaign.</p>
+        <% else %>
+          <p>HERE IS YOUR PRESS KIT FOR <br><strong><%= @user.selections.last.campaign.title %></strong>!
+        <% end %>
+          <br><br>
+          <span class="asset-download">
+            <!-- Link to Asset -->
+              <% if @user.selections.empty? %>
+                  <p>You haven't joined any campaign yet!</p>
+              <% elsif @user.selections.last.campaign.live %>
+                  <%= link_to 'DOWNLOAD', download_last_path%>
+              <% else %>
+                  <p>Waiting for your next live campaign...</p>
+              <% end %>
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- title -->
+  <div id="profile-h2">
+    <h2>Campaigns you've joined</h2>
+  </div>
+
+    <!-- if no campaigns -->
+   <div class="container-no-campaign">
+    <div class="no-campaign-yet">
+      <% if @user.campaigns.empty? %>
+        <br>
+        <h4>We need your support! Have a look to our campaigns :</h4>
+        <br>
+        <%= link_to 'ALL CAMPAIGNS', campaigns_path, class: "more-button" %>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- campaign cards -->
+  <div class="profile-container">
+    <div class="profile-campaigns-container">
+
+      <!--Iterate over campaigns-->
+      <% @user.campaigns.each do |campaign|%>
+
+        <!--campaign cards-->
+        <div class="card-campaign">
+
+          <!--live flag-->
+          <% if campaign.live %>
+            <p class="live-flag">LIVE</p>
+          <% end %>
+
+          <!--image-->
+          <%= link_to cl_image_tag(campaign.campaign_picture, class:"card-campaign-img", width: 278, height: 180, :crop=>"fill"), campaign_path(campaign) %>
+
+          <!--infos-->
+          <div class="card-campaign-infos">
+            <h2><%= link_to campaign.title, campaign_path(campaign) %></h2>
+            <p class="date"><%= campaign.launch_date.strftime("%d. %B %Y") || 'TBD' %></p>
+            <p><%= campaign.campaign_description.first(30)  %>...</p>
+
+            <!--user avatars-->
+            <div id="campaign-users">
+              <% campaign.users.last(2).each do |user| %>
+                <%= link_to cl_image_tag(user.picture, class: "avatar", width: 40, height: 40, crop: :thumb, gravity: :face), user_path(user) %>
+              <% end %>
+              <% if campaign.users.count >= 3 %>
+                + <%= campaign.users.count - 2 %> more
+              <% end %>
+            </div>
+            <!-- link to asset download-->
+            <% if campaign.live %>
+              <%= link_to 'ASSETS', download_path(campaign), class:'index-card-btn' %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
